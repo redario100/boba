@@ -1,18 +1,17 @@
-
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name = "viewport" content = "initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no, width = device-width">
-		<title>jQuery Mobile: Theme Download</title>
-		<link rel="stylesheet" href="themes/thems_app.min.css" />
-		<link rel="stylesheet" href="themes/jquery.mobile.structure-1.3.2.min.css" />
-		<script src="js/jquery-1.9.1.min.js"></script>
-		<!--<SCRIPT type="text/javascript"
+        <head>
+                <meta charset="utf-8">
+                <meta name = "viewport" content = "initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no, width = device-width">
+                <title>jQuery Mobile: Theme Download</title>
+                <link rel="stylesheet" href="themes/thems_app.min.css" />
+                <link rel="stylesheet" href="themes/jquery.mobile.structure-1.3.2.min.css" />
+                <script src="js/jquery-1.9.1.min.js"></script>
+                <!--<SCRIPT type="text/javascript"
         src="http://code.jquery.com/jquery-latest.js"></SCRIPT>-->
-		<script src="js/jquery-ui.js"></script>
-		<script src="js/jquery.mobile-1.3.2.min.js"></script>
-		<script src="phonegap.js"></script>
+                <script src="js/jquery-ui.js"></script>
+                <script src="js/jquery.mobile-1.3.2.min.js"></script>
+                <script src="phonegap.js"></script>
 <script type="text/javascript">
 function affichemenu() 
 {
@@ -23,7 +22,7 @@ $("#ll").html('<select onchange="getval()" data-theme="c" name="select-native-0"
 document.getElementById("ll").style.display="none";
  //$("#aff_contenue").animate({left:'100%'},"slow");
 $.ajax({
-	type: "POST",
+        type: "POST",
     url: "http://192.168.1.120/resto/menu.php",
   data: "j=ok",  
   cache: false,
@@ -85,7 +84,7 @@ function macommande()
 {
 var msg = document.getElementById("tbl").innerHTML;
 $.ajax({
-	type: "POST",
+        type: "POST",
     url: "http://192.168.1.120/resto/commande.php",
   data: "q="+msg,  
   cache: false,
@@ -118,7 +117,7 @@ if (v != "")
 $("#bgv").fadeIn('100');
 $("#valida").fadeIn('100');
 $.ajax({
-	type: "POST",
+        type: "POST",
     url: "http://192.168.1.120/resto/ajout.php",
   data: "q="+msg+"&v="+v,  
   cache: false,
@@ -139,8 +138,8 @@ $("#valida2").fadeIn('100');
 }
 function supprim(msg)
 {
-	$.ajax({
-	type: "POST",
+        $.ajax({
+        type: "POST",
     url: "http://192.168.1.120/resto/supprimer.php",
   data: "q="+msg,  
   cache: false,
@@ -148,7 +147,7 @@ function supprim(msg)
 $('#'+msg+'red').hide('500');
   setTimeout(function (){
   $.ajax({
-	type: "POST",
+        type: "POST",
     url: "http://192.168.1.120/resto/commande.php",
   data: "q=1",  
   cache: false,
@@ -183,25 +182,25 @@ document.getElementById('calci').innerHTML="0";
 });
 }
 </script>
-	</head>
-	<body onload="affichemenu()">
+        </head>
+        <body onload="affichemenu()">
 
 <div id="confirm_mes" style="display:none;position:fixed;top:20%;margin:10%;border-radius:5px;box-shadow:0 0 0.5em gray;width:80%;height:40%px;background-color:black;z-index:9998">
 <p style="padding:0px 25px;color:white;font-family:calibri;font-size:22px;" >Etes-vous s&ucirc;r de ce choix ? </p>
-<div style="padding:10px;float:right;"><img style="border-radius:4px;box-shadow:0 0 0.5em gray;" onclick="document.getElementById('confirm_mes').style.display='none';$('#confirm_mes').hide();" src="images/non.png"/>
+<div style="padding:10px;float:right;"><img style="border-radius:4px;box-shadow:0 0 0.5em gray;" onclick="document.getElementById('confirm_mes').style.display='none';document.getElementById('bgv').style.display='none';" src="images/non.png"/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img style="border-radius:4px;box-shadow:0 0 0.5em gray;" onclick="oui();" src="images/oui.png"/></div>
 </div>
-<div id="bgv" style="display:none;position:fixed;background-color:black;left:0;top:0;width:100%;height:100%;opacity:0.7;z-index:9997"></div>
-<div id="valida" style="position:fixed;background-color:black;margin:auto;width:90%;top:40%;padding:15px;z-index:9998;border-radius:15px;box-shadow:0 0 0.8em black;"><img src="images/valid.png"><i>&nbsp;<span style="font-size:18px;color:white;font-family:calibri;position:relative;top:-15px;">Ajout&eacute; au panier</span></i></div>
-<div id="valida2" style="display:none;position:fixed;background-color:black;margin:auto;width:90%;top:40%;padding:15px;z-index:9998;border-radius:15px;box-shadow:0 0 0.8em black;"><img width="45px" src="images/er.png"><i>&nbsp;<span style="font-size:18px;color:white;font-family:calibri;position:relative;top:-15px;"> Selectionnez une table</span></i></div>
+<div onclick="document.getElementById('bgv').style.display='none';" id="bgv" style="display:none;position:fixed;background-color:black;left:0;top:0;width:100%;height:100%;opacity:0.7;z-index:9997"></div>
+<div id="valida" style="display:none;position:relative;width:180px;background-color:black;margin-left: auto;margin-right: auto;top:40%;padding:15px;z-index:9998;border-radius:15px;box-shadow:0 0 0.8em black;"><img src="images/valid.png"><i>&nbsp;<span style="font-size:18px;color:white;font-family:calibri;position:relative;top:-15px;">Ajout&eacute; au panier</span></i></div>
+<div id="valida2" style="display:none;position:relative;background-color:black;margin-left: auto;margin-right: auto;margin:auto;width:220px;top:40%;padding:15px;z-index:9998;border-radius:15px;box-shadow:0 0 0.8em black;"><img width="45px" src="images/er.png"><i>&nbsp;<span style="font-size:18px;color:white;font-family:calibri;position:relative;top:-15px;"> Selectionnez une table</span></i></div>
 
-		<div style="padding:0px;margin:0px" data-role="page" data-theme="a">
-			<div id="cont2" data-position="fixed" data-role="header" style="padding:4px">
-			<h1>&nbsp;</h1>
-			<div id="tbl" style="display:none"></div>
-			<a data-theme="c" onclick='affichemenu();return false' href="#"  data-wrapperels="span" data-mini="true" data-display="push" data-iconshadow="false" data-inline="true" data-role="button" data-icon="bars" data-iconpos="notext" style="padding:5px;border-radius:20px;box-shadow:0 0 0.5em black;"></a>
+                <div style="padding:0px;margin:0px" data-role="page" data-theme="a">
+                        <div id="cont2" data-position="fixed" data-role="header" style="padding:4px">
+                        <h1>&nbsp;</h1>
+                        <div id="tbl" style="display:none"></div>
+                        <a data-theme="c" onclick='affichemenu();return false' href="#"  data-wrapperels="span" data-mini="true" data-display="push" data-iconshadow="false" data-inline="true" data-role="button" data-icon="bars" data-iconpos="notext" style="padding:5px;border-radius:20px;box-shadow:0 0 0.5em black;"></a>
 
-<fieldset style="margin-right:1%;" class="ui-btn-right" data-role="controlgroup" data-type="horizontal" data-mini="true">		
+<fieldset style="margin-right:1%;" class="ui-btn-right" data-role="controlgroup" data-type="horizontal" data-mini="true">                
 <a href="#"  style="float:right;padding:2px;" data-role="button" data-mini="true" data-inline="true" data-icon="check" onclick="macommande()" data-theme="a">Valider la commande</a>
 <div id="calci"  style="margin-right:10px;float:right;max-width:15px;background-color:#E51E08;z-index:99;opacity:0.9;box-shadow:0 0 0.5em black;border-radius:4px;border:1px groove #210401;text-shadow:1px 1px 0 black;padding:1px 3px;font-size:14px;color:white;font-family:calibri;font-weight:bold">0</div>
 
@@ -210,26 +209,3 @@ document.getElementById('calci').innerHTML="0";
 
 <div  id="ll" class="ui-btn-right" style="padding:12px;left:40px;top:-3px;width:250px;margin:0px;" data-role="fieldcontain">
 </div>
-
-
-</div>
-
-<div id="cont" data-role="content" data-theme="a" style="padding:6px;">
-<div style="display:none" id="loader"><img style="position:absolute;left:48%;top:45%;" src="images/loader.gif"></div>
-<div id="aff_contenue3" style="padding:30px;overflow:auto;top:0px;left:0px;display:none;background-color:white;">
-</div>
-
-<nav id="meno">
-</nav>
-
-
-<section id="aff_contenue" style="display:none;">
-
-</section>
-<div data-role="footer" data-position="fixed">
-	<h1>Foresto - Tout les droits r&eacute;serv&eacute;s v.1.0</h1>
-</div>
-</div>
-		</div>
-	</body>
-</html>
